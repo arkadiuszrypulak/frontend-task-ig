@@ -1,5 +1,5 @@
-import './App.css';
-import TableView from './components/TableView/TableView';
+import "./App.css";
+import TableView from "./components/TableView/TableView";
 
 function App() {
   return (

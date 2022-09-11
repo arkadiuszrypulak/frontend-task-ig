@@ -3,6 +3,7 @@ import LoadingSpinner from "../atoms/LoadingSpinner/LoadingSpinner";
 import { Wrapper } from "./TableView.styles";
 import { useFetch } from "../hooks/useFetch";
 import DataTable from "react-data-table-component";
+import Warning from "../atoms/Warning/Warning";
 
 const columns = [
   {
@@ -20,7 +21,6 @@ const columns = [
     selector: (row) => row.accountType,
   },
 ];
-
 const TableView = () => {
   const { data, loading, error } = useFetch(
     "https://recruitmentdb-508d.restdb.io/rest/accounts",
@@ -28,7 +28,7 @@ const TableView = () => {
   );
 
   if (error) {
-    console.log(error);
+    <Warning />;
   }
 
   return (
@@ -38,7 +38,6 @@ const TableView = () => {
       ) : (
         <DataTable columns={columns} data={data} />
       )}
-      {console.log(data)}
     </Wrapper>
   );
 };
